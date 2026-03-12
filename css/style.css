@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* == MONOCHROMATIC GREEN (adobe.color.com) == */
+:root {
+--g1: #043314;	/* darkest */
+--g2: #145028;
+--g3: #337A4B;
+--g4: #60A376;
+--g5: #9CCFAD;
+--g6: #DBF9E5;	/* lightest */
+}
+
+/* == RESET == */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* == BODY == */
+body {
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    background-color: #d8cfc4; /* fallback if images doesn't show up */
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* == WIDGET == */
+.widget {
+    width: 100%;
+    max-width: 45rem;
+    background: rgba(4, 51, 20, 0.887); /* dark green with opacity */
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 16px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* == MASTHEAD == */
+.masthead {
+    padding: 3rem 3rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(20,80,40,0.6) 0%, transparent 100%);
+}
+
+.masthead__title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    letter-spacing: 4px;
+    color: var(--g4);
+}
+
+.masthead__icon {
+    width: 125px;
+    height: 125px;
+    margin-bottom: 1.5rem;
+}
+
+.masthead__tagline {
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--g6);
+    letter-spacing: 1px;
+}
+
+/* == MAIN CONTENT */
+.main-content {
+    padding: 1.8rem 3rem 2rem;
+}
+
+.text-input{
+    width: 100%;
+    display: block;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.6rem;
+    background: var(--g6);
+    border: 1px solid var(--g4);
+    border-radius: 2px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: var(--g1);
+    outline: none;
+}
+
+.text-input::placeholder {
+    color: var(--g3);
+    font-style: italic;
+}
+
+/* BUTTONS */
+.btn-add {
+    width: 100%;
+    display: block;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.5rem;
+    background: var(--g4); 
+    border: none;
+    border-radius: 2px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--g1);
+    cursor: pointer;
+}
+
+.btn-add:hover {
+    background: var(--g5);
+}
+
+.feedback {
+    font-size: 0.85rem;
+    color: #f1a596;
+    min-height: 1rem;
+    margin-bottom: 0.6rem;
+    font-style: italic;
+}
+/* == SHOPPING LIST == */
+.shopping-list {
+    list-style: none;
+    width: 100%;
+}
+
+.shopping-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.8rem 0.25rem;
+    border-bottom: 1px dashed var(--g2);
+    color: var(--g6);
+    font-size: 1rem;
+    font-weight: 300;
+    animation: fadeIn 0.22s ease;
+}
+
+.shopping-list li:first-child {
+    border-top: 1px dashed var(--g2);
+}
+
+/* chevron for items */
+.shopping-list li::before {
+    content: '';
+    display: inline-block;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid var(--g4);
+    flex-shrink: 0;
+    margin-left: 4px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-8px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* == FOOTER == */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border-top: 1px dashed var(--g2);
+    margin: 0 4rem 2rem;
+    padding-top: 1.25rem;
+}
+
+.footer__link {
+    color: var(--g4);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.footer__link:hover {
+    color: var(--g5);
+    transform: translateY(-2px);
+}
+
+.footer__link svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* == CHECKBOX == */
+.shopping-list input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--g4);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.shopping-list span {
+    transition: opacity 0.2s;
+}
+
+.shopping-list input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
